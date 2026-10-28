@@ -1,0 +1,1315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PLAYTIME FESTIVAL 2024</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0f0f1b;
+        --card-bg: rgba(26, 25, 41, 0.65);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --card-hover-border: rgba(220, 184, 255, 0.4);
+        --neon-purple: #dcb8ff;
+        --neon-pink: #ffb1ce;
+        --neon-blue: #a9c8ff;
+        --neon-cyan: #00f2fe;
+        --text-primary: #ffffff;
+        --text-secondary: #aaa5b5;
+        --text-muted: #7786b0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text-primary);
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        overflow-x: hidden;
+        background-image:
+          radial-gradient(
+            circle at 15% 15%,
+            rgba(168, 85, 247, 0.12) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 85% 65%,
+            rgba(0, 242, 254, 0.08) 0%,
+            transparent 40%
+          );
+        background-attachment: fixed;
+      }
+
+      #container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Button Styles */
+      .btn {
+        background: linear-gradient(135deg, #adc6ff 0%, #dcb8ff 100%);
+        color: #121829;
+        border-radius: 99px;
+        border: none;
+        padding: 12px 24px;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow:
+          0 8px 30px rgba(168, 85, 247, 0.6),
+          0 0 15px rgba(0, 242, 254, 0.5);
+        background: linear-gradient(135deg, #dcb8ff 0%, #adc6ff 100%);
+      }
+
+      .btn-hero {
+        background: linear-gradient(135deg, #adc6ff 0%, #8caeff 100%);
+        color: #0f1c3f;
+        padding: 16px 32px;
+        font-size: 18px;
+        width: fit-content;
+        box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+      }
+
+      .btn-hero:hover {
+        background: linear-gradient(135deg, #00f2fe 0%, #adc6ff 100%);
+        color: #081026;
+        box-shadow: 0 10px 40px rgba(0, 242, 254, 0.7);
+      }
+
+      #header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 24px;
+        position: sticky;
+        top: 16px;
+        z-index: 100;
+        background: rgba(15, 15, 27, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        margin-top: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      #header-left {
+        color: var(--text-primary);
+        font-family: "Anybody", sans-serif;
+        font-size: 28px;
+        font-weight: 900;
+        letter-spacing: -1px;
+        text-transform: lowercase;
+        background: linear-gradient(90deg, #ffffff, var(--neon-purple));
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      #header-middle {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      #header-middle a {
+        color: var(--text-secondary);
+        position: relative;
+        padding: 4px 0;
+      }
+
+      #header-middle a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--neon-purple);
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+
+      #header-middle a:hover {
+        color: #ffffff;
+      }
+
+      #header-middle a:hover::after {
+        width: 100%;
+      }
+
+      #hero {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 80px 0 60px;
+        gap: 40px;
+      }
+
+      #hero-left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      #hero-title {
+        font-size: clamp(40px, 6vw, 68px);
+        line-height: 1.05;
+        background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #dcb7ff 50%,
+          #8caeff 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "Anybody", sans-serif;
+        font-weight: 900;
+        letter-spacing: -1px;
+      }
+
+      #hero-info {
+        color: #8caeff;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(140, 174, 255, 0.1);
+        padding: 8px 16px;
+        border-radius: 99px;
+        width: fit-content;
+        border: 1px solid rgba(140, 174, 255, 0.2);
+      }
+
+      #hero-text {
+        color: var(--text-secondary);
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 480px;
+      }
+
+      #hero-right {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+
+      .img-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 480px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow:
+          0 0 35px rgba(0, 242, 254, 0.25),
+          0 20px 40px rgba(0, 0, 0, 0.6);
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+
+      .img-wrapper:hover {
+        transform: translateY(-8px) rotate(1deg);
+        box-shadow:
+          0 0 50px rgba(0, 242, 254, 0.4),
+          0 30px 60px rgba(0, 0, 0, 0.8);
+      }
+
+      #img1 {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+
+      .img-wrapper:hover #img1 {
+        transform: scale(1.05);
+      }
+
+      #middle {
+        width: 100%;
+        padding: 60px 0;
+      }
+
+      #middle-top {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      #middle-top-title {
+        font-size: clamp(32px, 4vw, 48px);
+        font-family: "Anybody", sans-serif;
+        font-weight: 900;
+        color: var(--neon-purple);
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+      }
+
+      #middle-top-text {
+        color: var(--text-secondary);
+        font-size: 16px;
+      }
+
+      #middle-middle {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .img-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        aspect-ratio: 4 / 5;
+      }
+
+      .img-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--card-hover-border);
+        box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
+      }
+
+      .img-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .img-card:hover img {
+        transform: scale(1.08);
+      }
+
+      .img-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(15, 15, 27, 0) 40%,
+          rgba(15, 15, 27, 0.95) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+        transition: background 0.3s ease;
+      }
+
+      .img-card:hover .img-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(15, 15, 27, 0.2) 30%,
+          rgba(15, 15, 27, 0.98) 100%
+        );
+      }
+
+      .genre-tag {
+        align-self: flex-start;
+        padding: 6px 12px;
+        border-radius: 99px;
+        background: rgba(168, 85, 247, 0.3);
+        backdrop-filter: blur(8px);
+        color: #e9d8ff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+        border: 1px solid rgba(220, 184, 255, 0.3);
+      }
+
+      .artist-name {
+        font-size: 28px;
+        font-family: "Anybody", sans-serif;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 6px;
+      }
+
+      .bio-btn {
+        color: var(--neon-blue);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition:
+          gap 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .img-card:hover .bio-btn {
+        gap: 10px;
+        color: var(--neon-purple);
+      }
+
+      #date {
+        margin: 60px 0 80px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .stat-card {
+        border-radius: 20px;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: white;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(12px);
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(169, 200, 255, 0.4);
+        box-shadow:
+          0 10px 30px rgba(0, 0, 0, 0.4),
+          0 0 20px rgba(169, 200, 255, 0.15);
+      }
+
+      .stat-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: rgba(169, 200, 255, 0.1);
+        color: var(--neon-blue);
+        font-size: 20px;
+        flex-shrink: 0;
+        border: 1px solid rgba(169, 200, 255, 0.2);
+      }
+
+      .info-label {
+        color: var(--text-muted);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        font-weight: 700;
+      }
+
+      .info-date {
+        font-size: 18px;
+        color: var(--text-primary);
+        font-family: "Anybody", sans-serif;
+        font-weight: 700;
+      }
+
+      .schedule {
+        margin-bottom: 100px;
+      }
+
+      .schedule-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .schedule h2 {
+        color: var(--neon-blue);
+        font-family: "Anybody", sans-serif;
+        font-weight: 900;
+        font-size: clamp(28px, 4vw, 42px);
+      }
+
+      .days {
+        display: flex;
+        gap: 10px;
+        background: rgba(23, 22, 37, 0.8);
+        padding: 6px;
+        border-radius: 99px;
+        border: 1px solid var(--card-border);
+      }
+
+      .day-btn {
+        border: none;
+        background: transparent;
+        color: var(--text-secondary);
+        padding: 10px 20px;
+        border-radius: 99px;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .day-btn.active {
+        background: linear-gradient(
+          135deg,
+          rgba(168, 85, 247, 0.8) 0%,
+          rgba(92, 44, 111, 0.9) 100%
+        );
+        color: #ffffff;
+        box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+      }
+
+      .day-btn:hover:not(.active) {
+        color: #ffffff;
+      }
+
+      .events {
+        display: grid;
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .event-card {
+        display: grid;
+        grid-template-columns: 160px 1fr auto;
+        align-items: center;
+        gap: 20px;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        padding: 20px 28px;
+        transition: all 0.3s ease;
+      }
+
+      .event-card:hover {
+        transform: translateX(6px);
+        border-color: var(--card-hover-border);
+        background: rgba(35, 33, 56, 0.8);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .event-time {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--neon-purple);
+        font-family: "Anybody", sans-serif;
+      }
+
+      .event-card:nth-child(2) .event-time {
+        color: var(--neon-pink);
+      }
+
+      .event-card:nth-child(3) .event-time {
+        color: var(--neon-blue);
+      }
+
+      .event-name {
+        font-size: 18px;
+        font-weight: 800;
+        margin-bottom: 4px;
+        color: #ffffff;
+        font-family: "Anybody", sans-serif;
+      }
+
+      .stage-name {
+        font-size: 12px;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .venue-badge {
+        font-size: 11px;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text-secondary);
+        border-radius: 99px;
+        padding: 6px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .bottom-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 100px;
+      }
+
+      .sponsors h2,
+      .partners h2 {
+        font-family: "Anybody", sans-serif;
+        font-weight: 900;
+        font-size: 28px;
+        margin-bottom: 24px;
+      }
+
+      .sponsors h2 {
+        color: var(--neon-purple);
+      }
+      .partners h2 {
+        color: var(--neon-blue);
+      }
+
+      .sponsor-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .brand-card {
+        height: 80px;
+        border-radius: 18px;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .brand-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(220, 184, 255, 0.4);
+        color: #ffffff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .brand-icon {
+        font-size: 20px;
+        margin-bottom: 6px;
+        color: var(--neon-purple);
+      }
+
+      .partner-box {
+        display: grid;
+        gap: 14px;
+      }
+
+      .partner-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 18px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        color: var(--text-secondary);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .partner-card:hover {
+        transform: translateX(6px);
+        border-color: rgba(169, 200, 255, 0.4);
+        color: #ffffff;
+      }
+
+      .partner-card::before {
+        content: "◉";
+        color: var(--neon-blue);
+        font-size: 14px;
+        margin-right: 12px;
+      }
+
+      footer {
+        border-top: 1px solid var(--card-border);
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--text-muted);
+        font-size: 13px;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-logo {
+        color: var(--text-primary);
+        font-family: "Anybody", sans-serif;
+        font-size: 24px;
+        font-weight: 900;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 24px;
+      }
+
+      .footer-links span {
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+
+      .footer-links span:hover {
+        color: var(--neon-purple);
+      }
+
+      /* Modal / Dialog Styles */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 10, 18, 0.85);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modal-content {
+        background: #171626;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 28px;
+        max-width: 520px;
+        width: 100%;
+        padding: 32px;
+        box-shadow:
+          0 25px 50px -12px rgba(0, 0, 0, 0.7),
+          0 0 30px rgba(168, 85, 247, 0.2);
+        transform: scale(0.95) translateY(10px);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+      }
+
+      .modal-overlay.active .modal-content {
+        transform: scale(1) translateY(0);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        display: grid;
+        place-items: center;
+        transition: background 0.2s ease;
+      }
+
+      .modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Responsive Breakpoints */
+      @media (max-width: 900px) {
+        #hero {
+          flex-direction: column;
+          padding: 40px 0;
+          text-align: center;
+        }
+
+        #hero-left {
+          width: 100%;
+          align-items: center;
+        }
+
+        #hero-right {
+          width: 100%;
+        }
+
+        #middle-middle {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        #date {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .bottom-grid {
+          grid-template-columns: 1fr;
+        }
+
+        #header-middle {
+          display: none; /* Mobile menu ready */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <header id="header">
+        <div id="header-left">playtime</div>
+        <nav id="header-middle">
+          <a href="#middle">Lineup</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#sponsors">Sponsors</a>
+        </nav>
+        <button class="btn" onclick="openTicketModal()">
+          <span>Get Tickets</span> →
+        </button>
+      </header>
+
+      <section id="hero">
+        <div id="hero-left">
+          <div id="hero-title">PLAYTIME FESTIVAL</div>
+          <div id="hero-info">
+            <img src="./Icon.png" alt="Icon" />
+            <span> JULY 15-17, 2024</span>
+            <span>•</span>
+            <span>☉ NEON CITY PARK</span>
+          </div>
+          <p id="hero-text">
+            The ultimate summer music experience for the next generation. Three
+            days of non-stop beats, vibrant lights, and unforgettable memories
+            with global headliners.
+          </p>
+          <button class="btn btn-hero" onclick="openTicketModal()">
+            Join the Beat →
+          </button>
+        </div>
+        <div id="hero-right">
+          <div class="img-wrapper">
+            <img
+              id="img1"
+              src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80"
+              alt="Playtime Festival Stage"
+              onerror="
+                this.src =
+                  'https://placehold.co/800x600/171626/dcb8ff?text=Playtime+Festival+2024'
+              "
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="middle">
+        <div id="middle-top">
+          <h2 id="middle-top-title">MEET THE HEADLINERS</h2>
+          <p id="middle-top-text">
+            The biggest acts lighting up the main stage this summer.
+          </p>
+        </div>
+
+        <div id="middle-middle">
+          <!-- Artist 1 -->
+          <div
+            class="img-card"
+            onclick="
+              openArtistModal(
+                'Nova Sky',
+                'Pop / Synth',
+                'Nova Sky is an electro-pop visionary whose ethereal vocals and synth-wave anthems have topped global charts for three consecutive years.',
+                'Day 1 • 9:30 PM',
+                'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80',
+              )
+            "
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80"
+              alt="Nova Sky"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x800/171626/dcb8ff?text=Nova+Sky'
+              "
+            />
+            <div class="img-overlay">
+              <span class="genre-tag">Pop / Synth</span>
+              <h3 class="artist-name">Nova Sky</h3>
+              <span class="bio-btn">VIEW BIO &rarr;</span>
+            </div>
+          </div>
+
+          <!-- Artist 2 -->
+          <div
+            class="img-card"
+            onclick="
+              openArtistModal(
+                'DJ PULSE',
+                'EDM / House',
+                'Pioneering heavy-bass and mainstage house, DJ PULSE brings high-energy lasers, immersive visuals, and exclusive unreleased IDs.',
+                'Day 2 • 11:00 PM',
+                'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80',
+              )
+            "
+          >
+            <img
+              src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80"
+              alt="DJ PULSE"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x800/171626/dcb8ff?text=DJ+PULSE'
+              "
+            />
+            <div class="img-overlay">
+              <span class="genre-tag">EDM / House</span>
+              <h3 class="artist-name">DJ PULSE</h3>
+              <span class="bio-btn">VIEW BIO &rarr;</span>
+            </div>
+          </div>
+
+          <!-- Artist 3 -->
+          <div
+            class="img-card"
+            onclick="
+              openArtistModal(
+                'The Echoes',
+                'Indie Rock',
+                'Blending fuzzy guitar hooks with ambient indie soundscapes, The Echoes are set to deliver an explosive sunset performance.',
+                'Day 3 • 8:15 PM',
+                'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80',
+              )
+            "
+          >
+            <img
+              src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80"
+              alt="The Echoes"
+              onerror="
+                this.src =
+                  'https://placehold.co/600x800/171626/dcb8ff?text=The+Echoes'
+              "
+            />
+            <div class="img-overlay">
+              <span class="genre-tag">Indie Rock</span>
+              <h3 class="artist-name">The Echoes</h3>
+              <span class="bio-btn">VIEW BIO &rarr;</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="date">
+        <div class="stat-card">
+          <div class="stat-icon"><img src="./Icon (2).png" alt="Icon" /></div>
+          <div>
+            <p class="info-label">DATE</p>
+            <p class="info-date">July 15-17, 2024</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><img src="./Map.png" alt="Map Icon" /></div>
+          <div>
+            <p class="info-label">LOCATION</p>
+            <p class="info-date">Neon City Park</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><img src="./Icon (1).png" alt="Icon" /></div>
+          <div>
+            <p class="info-label">PASS PRICE</p>
+            <p class="info-date">$99 (3-Day Pass)</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="schedule" id="schedule">
+        <div class="schedule-top">
+          <h2>FESTIVAL SCHEDULE</h2>
+          <div class="days">
+            <button class="day-btn active" onclick="selectDay(1, this)">
+              Day 1
+            </button>
+            <button class="day-btn" onclick="selectDay(2, this)">Day 2</button>
+            <button class="day-btn" onclick="selectDay(3, this)">Day 3</button>
+          </div>
+        </div>
+
+        <div class="events" id="events-list">
+          <!-- Dynamic JS Events Inserted Here -->
+        </div>
+      </section>
+
+      <section class="bottom-grid" id="sponsors">
+        <div class="sponsors">
+          <h2>OUR SPONSORS</h2>
+          <div class="sponsor-box">
+            <div class="brand-card">
+              <span class="brand-icon"
+                ><img src="./Soundwave.png" alt="Soundwave Icon"
+              /></span>
+              <span>SOUNDWAVE AUDIO</span>
+            </div>
+            <div class="brand-card">
+              <span class="brand-icon"
+                ><img src="./Eclipse.png" alt="Eclipse Icon"
+              /></span>
+              <span>ECLIPSE STAGE</span>
+            </div>
+            <div class="brand-card">
+              <span class="brand-icon"
+                ><img src="./Quantum.png" alt="Quantum Icon"
+              /></span>
+              <span>QUANTUM LINK</span>
+            </div>
+            <div class="brand-card">
+              <span class="brand-icon"
+                ><img src="./Harmony.png" alt="HARMONY CAPITAL Icon"
+              /></span>
+              <span>HARMONY CAPITAL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="partners">
+          <h2>STRATEGIC PARTNERS</h2>
+          <div class="partner-box">
+            <div class="partner-card">SONIC SYNC MEDIA</div>
+            <div class="partner-card">NEXUS AUDIO TECH</div>
+            <div class="partner-card">STREAMFLOW LIVE</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-logo">playtime</div>
+        <div>&copy; 2024 NEON BEAT FESTIVAL. ALL RIGHTS RESERVED.</div>
+        <div class="footer-links">
+          <span>Privacy Policy</span>
+          <span>Terms of Service</span>
+          <span>Safety & Guidelines</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Artist Bio Modal -->
+    <div class="modal-overlay" id="artistModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModals()">&times;</button>
+        <img
+          id="modalArtistImg"
+          src=""
+          alt="Artist"
+          style="
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 18px;
+            margin-bottom: 20px;
+          "
+        />
+        <span
+          class="genre-tag"
+          id="modalArtistGenre"
+          style="margin-bottom: 8px; display: inline-block"
+          >Genre</span
+        >
+        <h2
+          id="modalArtistName"
+          style="
+            font-family: &quot;Anybody&quot;, sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+          "
+        >
+          Artist Name
+        </h2>
+        <p
+          id="modalArtistSet"
+          style="
+            color: var(--neon-purple);
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 16px;
+          "
+        >
+          Set Time
+        </p>
+        <p
+          id="modalArtistBio"
+          style="
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 24px;
+          "
+        >
+          Artist Bio Text
+        </p>
+        <button class="btn" style="width: 100%" onclick="closeModals()">
+          Close Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Ticket Purchase Modal -->
+    <div class="modal-overlay" id="ticketModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModals()">&times;</button>
+        <h2
+          style="
+            font-family: &quot;Anybody&quot;, sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+          "
+        >
+          GET YOUR FESTIVAL PASS
+        </h2>
+        <p
+          style="
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+          "
+        >
+          Select your ticket package for Playtime Festival 2024.
+        </p>
+
+        <div style="display: grid; gap: 12px; margin-bottom: 24px">
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.05);
+              padding: 16px;
+              border-radius: 16px;
+              border: 1px solid var(--neon-purple);
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <div style="font-weight: 800; color: #fff">3-Day GA Pass</div>
+              <div style="font-size: 12px; color: var(--text-muted)">
+                Full 3-day access to all stages
+              </div>
+            </div>
+            <div
+              style="
+                font-weight: 800;
+                color: var(--neon-purple);
+                font-size: 18px;
+              "
+            >
+              $99
+            </div>
+          </div>
+
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.03);
+              padding: 16px;
+              border-radius: 16px;
+              border: 1px solid var(--card-border);
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <div style="font-weight: 800; color: #fff">3-Day VIP Pass</div>
+              <div style="font-size: 12px; color: var(--text-muted)">
+                VIP Deck + Express Line + Lounge
+              </div>
+            </div>
+            <div
+              style="font-weight: 800; color: var(--neon-cyan); font-size: 18px"
+            >
+              $199
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="btn btn-hero"
+          style="width: 100%; justify-content: center"
+          onclick="confirmTicket()"
+        >
+          Checkout Pass &rarr;
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Schedule Data for Days 1, 2, and 3
+      const scheduleData = {
+        1: [
+          {
+            time: "2:00 PM",
+            name: "Nova Sky",
+            stage: "Main Stage",
+            venue: "Main Stage",
+          },
+          {
+            time: "5:30 PM",
+            name: "Hyper Drive",
+            stage: "Groove Arena",
+            venue: "Main Stage",
+          },
+          {
+            time: "9:00 PM",
+            name: "Synthetix Live",
+            stage: "Neon Dome",
+            venue: "Main Stage",
+          },
+        ],
+        2: [
+          {
+            time: "3:15 PM",
+            name: "Solar Eclipse",
+            stage: "Main Stage",
+            venue: "Main Stage",
+          },
+          {
+            time: "6:45 PM",
+            name: "The Echoes",
+            stage: "Groove Arena",
+            venue: "Arena A",
+          },
+          {
+            time: "11:00 PM",
+            name: "DJ PULSE",
+            stage: "Main Stage",
+            venue: "Main Stage",
+          },
+        ],
+        3: [
+          {
+            time: "1:00 PM",
+            name: "Velvet Horizon",
+            stage: "Neon Dome",
+            venue: "Dome 2",
+          },
+          {
+            time: "4:30 PM",
+            name: "Acoustic Pulse",
+            stage: "Groove Arena",
+            venue: "Arena B",
+          },
+          {
+            time: "8:15 PM",
+            name: "The Echoes (Headliner Set)",
+            stage: "Main Stage",
+            venue: "Main Stage",
+          },
+        ],
+      };
+
+      // Render Schedule
+      function renderSchedule(day) {
+        const eventsList = document.getElementById("events-list");
+        const events = scheduleData[day] || [];
+
+        eventsList.innerHTML = events
+          .map(
+            (event) => `
+          <div class="event-card">
+            <div class="event-time">${event.time}</div>
+            <div>
+              <div class="event-name">${event.name}</div>
+              <div class="stage-name"><img src="./Pin.png" alt="Icon" /> ${event.stage}</div>
+            </div>
+            <span class="venue-badge">${event.venue}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      // Switch Active Day Tab
+      function selectDay(day, button) {
+        document
+          .querySelectorAll(".day-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        renderSchedule(day);
+      }
+
+      // Open Artist Modal
+      function openArtistModal(name, genre, bio, setTime, imgUrl) {
+        document.getElementById("modalArtistName").textContent = name;
+        document.getElementById("modalArtistGenre").textContent = genre;
+        document.getElementById("modalArtistBio").textContent = bio;
+        document.getElementById("modalArtistSet").textContent =
+          "📅 Set Time: " + setTime;
+        document.getElementById("modalArtistImg").src = imgUrl;
+        document.getElementById("artistModal").classList.add("active");
+      }
+
+      // Open Ticket Modal
+      function openTicketModal() {
+        document.getElementById("ticketModal").classList.add("active");
+      }
+
+      // Close All Modals
+      function closeModals() {
+        document
+          .querySelectorAll(".modal-overlay")
+          .forEach((modal) => modal.classList.remove("active"));
+      }
+
+      // Confirm Ticket Action
+      function confirmTicket() {
+        alert(
+          "🎉 Reserved! Ticket code: PLAYTIME-2024-" +
+            Math.floor(100000 + Math.random() * 900000),
+        );
+        closeModals();
+      }
+
+      // Initialize default schedule view
+      window.addEventListener("DOMContentLoaded", () => {
+        renderSchedule(1);
+      });
+    </script>
+  </body>
+</html>
